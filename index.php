@@ -37,9 +37,10 @@ if(isset($_POST['save'])) {
 		$amt_without_taxes = $rate_val + $ess_charge_val;
 
 		$fuel_charges =  $amt_without_taxes * 20 / 100;
-		$gst_val = $amt_without_taxes * 18 / 100;
+		$with_fuel = $fuel_charges + $amt_without_taxes;
+		$gst_val = $with_fuel * 18 / 100;
 
-		$after_taxes_added = $amt_without_taxes + $gst_val + $fuel_charges;
+		$after_taxes_added = $with_fuel + $gst_val;
 
 		// echo'<pre>';
 		// print_r($after_taxes_added);
